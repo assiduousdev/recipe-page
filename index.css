@@ -1,0 +1,173 @@
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf");
+  font-display: swap;
+  font-weight: 400 600 700;
+}
+
+@font-face {
+  font-family: "Young Serif";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf");
+  font-display: swap;
+}
+
+:root {
+  --clr-rose-800: 332 51 32;
+  --clr-rose-50: 330 100 98;
+
+  --clr-stone-900: 24 5 18;
+  --clr-stone-600: 30 10 34;
+  --clr-stone-150: 30 18 87;
+  --clr-stone-100: 30 54 90;
+
+  --clr-brown-800: 14 45 36;
+
+  --clr-white: 0 0 100;
+
+  --spacing-1600: 1.28rem;
+  --spacing-600: 4.8rem;
+  --spacing-500: 4rem;
+  --spacing-400: 3.2rem;
+  --spacing-300: 2.4rem;
+  --spacing-200: 1.6rem;
+  --spacing-150: 1.2rem;
+  --spacing-100: 0.8rem;
+
+  --fs-text-preset-900: clamp(3.6rem, 3.4592rem + 0.3756vw, 4rem);
+  --fs-text-preset-800: 2.8rem;
+  --fs-text-preset-700: 2rem;
+  --fs-text-preset-600: 1.6rem;
+
+  --ff-sans: "Outfit", sans-serif;
+  --ff-serif: "Young Serif", serif;
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}
+
+/* === reset === */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+
+  font-size: var(--fs-400);
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+
+  color: var(--body-color);
+  background: var(--body-bg);
+  background-repeat: no-repeat;
+
+  box-sizing: border-box;
+}
+
+/* 
+  enforce that lists that have their markers
+  removed will still be accessible in Safari   
+*/
+ul[role="list"],
+ol[role="list"] {
+  list-style-type: none;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: var(--fw-regular);
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* === end of reset === */
+
+/* === utilities === */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.text-preset-1 {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-text-preset-900);
+  font-weight: var(--fw-regular);
+  line-height: 1em;
+}
+
+.text-preset-2 {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-text-preset-800);
+  font-weight: var(--fw-regular);
+  line-height: 1em;
+}
+
+.text-preset-3 {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-text-preset-700);
+  font-weight: var(--fw-semibold);
+  line-height: 1em;
+}
+
+.text-preset-4 {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-text-preset-600);
+  font-weight: var(--fw-regular);
+  line-height: 1.5em;
+}
+
+.text-preset-4-bold {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-text-preset-600);
+  font-weight: var(--fw-bold);
+  line-height: 1.5em;
+}
+
+/* === end of utilities === */
