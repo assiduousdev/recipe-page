@@ -212,9 +212,11 @@ button {
   border-radius: var(--recipe-border-radius, 0);
 
   & .recipe__thumbnail {
-    object-fit: contain;
-    max-height: 30rem;
     margin-bottom: var(--spacing-500);
+  }
+
+  & .recipe__thumbnail-img {
+    max-height: 30rem;
   }
 
   & .recipe__content {
