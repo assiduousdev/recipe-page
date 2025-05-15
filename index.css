@@ -206,8 +206,10 @@ button {
 /* === recipe === */
 
 .recipe {
-  border-radius: var(--recipe-border-radius, 0);
+  padding-bottom: var(--spacing-500);
   max-width: 73.6rem;
+
+  border-radius: var(--recipe-border-radius, 0);
 
   & .recipe__thumbnail {
     object-fit: contain;
@@ -218,7 +220,7 @@ button {
   & .recipe__content {
     padding-inline: var(--spacing-400);
 
-    & > * {
+    & > *:where(:not(:last-child)) {
       margin-bottom: var(--spacing-400);
     }
   }
@@ -285,7 +287,13 @@ button {
     border-top: none;
 
     & .recipe__nutrition-col {
-      padding-top: none;
+      padding-top: 0;
+    }
+  }
+
+  & .recipe__nutrition-row:where(:last-child) {
+    & .recipe__nutrition-col {
+      padding-bottom: 0;
     }
   }
 }
@@ -295,7 +303,7 @@ button {
     --recipe-border-radius: 2.4rem;
     --recipe-inline-spacing: var(--spacing-500);
 
-    padding-block: var(--spacing-500);
+    padding-top: var(--spacing-500);
 
     & .recipe__thumbnail,
     & .recipe__content {
