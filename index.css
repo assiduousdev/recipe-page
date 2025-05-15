@@ -63,14 +63,11 @@ html {
 body {
   min-height: 100vh;
 
-  font-size: var(--fs-400);
+  color: hsl(var(--clr-stone-600));
+  font-size: var(--fs-text-preset-600);
   font-family: var(--ff-sans);
   font-weight: var(--fw-regular);
   line-height: 1.5;
-
-  color: var(--body-color);
-  background: var(--body-bg);
-  background-repeat: no-repeat;
 
   box-sizing: border-box;
 }
@@ -135,39 +132,211 @@ button {
   border: 0;
 }
 
-.text-preset-1 {
+.clr-stone-900 {
+  color: hsl(var(--clr-stone-900));
+}
+
+.clr-rose-800 {
+  color: hsl(var(--clr-rose-800));
+}
+
+.clr-brown-800 {
+  color: hsl(var(--clr-brown-800));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-rose-50 {
+  background-color: hsl(var(--clr-rose-50));
+}
+
+.ff-sans {
+  font-family: var(--ff-sans);
+}
+
+.ff-serif {
   font-family: var(--ff-serif);
-  font-size: var(--fs-text-preset-900);
-  font-weight: var(--fw-regular);
+}
+
+.fw-semibold {
+  font-weight: var(--fw-semibold);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.lh-full {
   line-height: 1em;
+}
+
+.lh-150 {
+  line-height: 1.5em;
+}
+
+.text-preset-1 {
+  font-size: var(--fs-text-preset-900);
 }
 
 .text-preset-2 {
-  font-family: var(--ff-serif);
   font-size: var(--fs-text-preset-800);
-  font-weight: var(--fw-regular);
-  line-height: 1em;
 }
 
 .text-preset-3 {
-  font-family: var(--ff-sans);
   font-size: var(--fs-text-preset-700);
-  font-weight: var(--fw-semibold);
-  line-height: 1em;
 }
 
 .text-preset-4 {
-  font-family: var(--ff-sans);
   font-size: var(--fs-text-preset-600);
-  font-weight: var(--fw-regular);
-  line-height: 1.5em;
-}
-
-.text-preset-4-bold {
-  font-family: var(--ff-sans);
-  font-size: var(--fs-text-preset-600);
-  font-weight: var(--fw-bold);
-  line-height: 1.5em;
 }
 
 /* === end of utilities === */
+
+/* === recipe === */
+
+.recipe {
+  & .recipe__thumbnail {
+    object-fit: contain;
+    object-position: center;
+    max-height: 30rem;
+    margin-bottom: var(--spacing-500);
+  }
+
+  & .recipe__content {
+    padding-inline: var(--spacing-400);
+
+    & > * {
+      margin-bottom: var(--spacing-400);
+    }
+  }
+
+  & .recipe__heading {
+    margin-bottom: var(--spacing-300);
+  }
+
+  & .recipe__prep-time {
+    padding: var(--spacing-300);
+
+    border-radius: calc(var(--recipe-border-radius, 2.4rem) / 2);
+  }
+
+  & .recipe__prep-list,
+  & .recipe__ingredients-list,
+  & .recipe__instructions-list {
+    padding-left: var(--spacing-100);
+  }
+
+  & .recipe__prep-list {
+    margin-top: var(--spacing-200);
+  }
+
+  & .recipe__ingredients-list,
+  & .recipe__instructions-list,
+  & .recipe__nutrition-table {
+    margin-top: var(--spacing-300);
+  }
+
+  & .recipe__prep-list-item,
+  & .recipe__ingredients-list-item,
+  & .recipe__instructions-list-item {
+    padding-left: var(--spacing-400);
+  }
+
+  & .recipe__section-separator {
+    height: 0.1rem;
+
+    border: 0;
+    font-size: 0;
+    background-color: hsl(var(--clr-stone-150));
+  }
+
+  & .recipe__nutrition-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  & .recipe__nutrition-caption {
+    text-align: left;
+    margin-bottom: var(--spacing-300);
+  }
+
+  & .recipe__nutrition-row {
+    border-top: 1px solid hsl(var(--clr-stone-150));
+
+    & .recipe__nutrition-col {
+      padding: var(--spacing-150) var(--spacing-400);
+    }
+  }
+
+  & .recipe__nutrition-row:where(:first-child) {
+    border-top: none;
+
+    & .recipe__nutrition-col {
+      padding-top: none;
+    }
+  }
+}
+
+/* === end of recipe === */
+
+/* === custom lists === */
+
+ul[role="list"].list.list--bullets {
+  --marker-bg-color: var(--clr-rose-800);
+
+  & > li.list-item {
+    position: relative;
+  }
+
+  & > li.list-item::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-block;
+    height: 0.4rem;
+
+    background-color: hsl(var(--marker-bg-color));
+    border-radius: 50%;
+
+    content: "";
+    aspect-ratio: 1;
+    transform: translateY(-50%);
+  }
+
+  & > li.list-item:where(:not(:last-child)) {
+    margin-bottom: var(--spacing-100);
+  }
+}
+
+ol[role="list"].list.list--numbered {
+  --marker-color: var(--clr-rose-800);
+
+  & > li.list-item {
+    position: relative;
+    counter-increment: numbered-list 1;
+  }
+
+  & > li.list-item::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+
+    color: hsl(var(--marker-color));
+    font-size: inherit;
+    font-weight: var(--fw-bold);
+    line-height: 1.5em;
+    border-radius: 50%;
+
+    content: counter(numbered-list) ".";
+    aspect-ratio: 1;
+  }
+
+  & > li.list-item:where(:not(:last-child)) {
+    margin-bottom: var(--spacing-100);
+  }
+}
+
+/* === end of custom lists === */
