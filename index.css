@@ -277,10 +277,19 @@ button {
   }
 
   & .recipe__nutrition-row {
+    --middle-inline-padding: var(--spacing-100);
     border-top: 1px solid hsl(var(--clr-stone-150));
 
     & .recipe__nutrition-col {
       padding: var(--spacing-150) var(--spacing-400);
+    }
+
+    & .recipe__nutrition-col:first-child {
+      padding-right: var(--middle-inline-padding);
+    }
+
+    & .recipe__nutrition-col:last-child {
+      padding-left: var(--middle-inline-padding);
     }
   }
 
@@ -296,6 +305,10 @@ button {
     & .recipe__nutrition-col {
       padding-bottom: 0;
     }
+  }
+
+  & .recipe__nutrition-col {
+    width: 50%;
   }
 }
 
