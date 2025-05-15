@@ -218,11 +218,10 @@ button {
   }
 
   & .recipe__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
     padding-inline: var(--spacing-400);
-
-    & > *:where(:not(:last-child)) {
-      margin-bottom: var(--spacing-400);
-    }
   }
 
   & .recipe__heading {
@@ -235,14 +234,14 @@ button {
     border-radius: calc(var(--recipe-border-radius, 2.4rem) / 2);
   }
 
+  & .recipe__prep-list {
+    margin-top: var(--spacing-200);
+  }
+
   & .recipe__prep-list,
   & .recipe__ingredients-list,
   & .recipe__instructions-list {
     padding-left: var(--spacing-100);
-  }
-
-  & .recipe__prep-list {
-    margin-top: var(--spacing-200);
   }
 
   & .recipe__ingredients-list,
@@ -348,7 +347,7 @@ ul[role="list"].list.list--bullets {
 }
 
 ol[role="list"].list.list--numbered {
-  --marker-color: var(--clr-rose-800);
+  --marker-color: var(--clr-brown-800);
 
   & > li.list-item {
     position: relative;
